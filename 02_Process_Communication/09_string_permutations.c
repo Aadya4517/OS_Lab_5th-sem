@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/wait.h>
 
 void permute(char str[], int start, int end)
 {
@@ -27,7 +29,17 @@ int main()
     printf("Enter a string (max 9 characters): ");
     scanf("%9s", str);
 
-    printf("Permutations:\n");
-    permute(str, 0, (int)strlen(str) - 1);
+    pid_t pid = fork();
+    if (pid == 0) {
+        printf("Permutations from child process:\n");
+        permute(str, 0, (int)strlen(str) - 1);
+    }
+    else if (pid > 0) {
+        wait(NULL);
+    }
+    else {
+        perror("fork");
+        return 1;
+    }
     return 0;
 }
