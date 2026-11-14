@@ -1,27 +1,19 @@
 # OS Lab Programs
 
-C programs for Operating Systems practicals.
+Simple C programs for Operating Systems practicals.
 
-I have kept the programs separate and used basic C concepts like loops, arrays, functions, if-else and simple system calls.
+The programs use basic concepts like loops, arrays, functions, `fork()`, `wait()` and IPC system calls.
 
 ## Folders
 
 - `01_Process_Management` - fork, wait, parent-child, orphan and zombie processes
-- `02_Process_Communication` - pipe, FIFO, message queue and shared memory
-- `03_File_Handling` - reading and writing files
+- `02_Process_Communication` - pipe, FIFO, message queue, shared memory and permutations
+- `03_File_Handling` - file reading and writing using processes
 - `04_CPU_Scheduling` - FCFS, SJF and Priority
 - `05_Page_Replacement` - FIFO and LRU
 
-## Run
+## Important
 
-These programs use `fork()`, `wait()` and other POSIX functions. They work with GCC in a Linux-based online compiler.
+The process and IPC programs use Linux/POSIX functions. Run them using a Linux-based GCC compiler or an online compiler that allows process creation and IPC. A restricted online compiler may block `fork()` or IPC calls even if GCC is available.
 
-You can edit the code in VS Code. But on Windows, the normal MinGW GCC compiler does not support `fork()` and `wait()`. To run those particular programs locally, a POSIX-compatible environment is needed.
-
-Compile one program like this in a GCC environment:
-
-```bash
-gcc file.c -o output
-./output
-```
-
+See [QUESTIONS.md](QUESTIONS.md) for the practical checklist.
