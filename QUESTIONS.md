@@ -1,6 +1,6 @@
 # OS Lab Practical Checklist
 
-This list follows the practicals and question sheets in the reference repository. The programs here are written separately in a simple C style.
+The programs are written in basic C with straightforward loops, arrays, functions and system calls. They are separate implementations based on the practical topics and question sheets in the reference repository.
 
 ## Process management
 - [x] Display process ID and parent process ID.
@@ -22,18 +22,18 @@ This list follows the practicals and question sheets in the reference repository
 - [x] Child opens and reads a file.
 
 ## Inter-process communication
-- [ ] Pipe
-- [ ] FIFO / named pipe
-- [ ] Message queue
-- [ ] Shared memory
-- [ ] Send an array sum through a pipe and check if it is prime.
-- [ ] Print permutations of a string in a child process.
+- [x] Pipe: send a message from parent to child.
+- [x] Pipe: send an array sum to child and check whether it is prime.
+- [x] FIFO / named pipe (writer and reader).
+- [x] Message queue (sender and receiver).
+- [x] Shared memory (writer and reader).
+- [x] Print string permutations in a child process.
 
 ## CPU scheduling
-- [ ] FCFS
-- [ ] SJF (non-preemptive)
-- [ ] Priority (non-preemptive)
+- [x] FCFS.
+- [x] SJF (non-preemptive, all arrival times treated as zero).
+- [x] Priority (non-preemptive, smaller number means higher priority).
 
 ## Page replacement
-- [ ] FIFO
-- [ ] LRU
+- [x] FIFO.
+- [x] LRU.
