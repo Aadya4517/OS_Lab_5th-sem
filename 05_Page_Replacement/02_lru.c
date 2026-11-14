@@ -18,24 +18,38 @@ int main()
     }
 
     for (int i = 0; i < n; i++) {
-        int pos = -1;
-        for (int j = 0; j < f; j++)
-            if (frame[j] == pages[i]) pos = j;
+        int pos = -1, hit = 0;
 
-        if (pos == -1) {
+        for (int j = 0; j < f; j++) {
+            if (frame[j] == pages[i]) {
+                pos = j;
+                hit = 1;
+                break;
+            }
+        }
+
+        if (!hit) {
             int empty = -1;
-            for (int j = 0; j < f; j++)
-                if (frame[j] == -1) { empty = j; break; }
+            for (int j = 0; j < f; j++) {
+                if (frame[j] == -1) {
+                    empty = j;
+                    break;
+                }
+            }
 
-            if (empty != -1) pos = empty;
+            if (empty != -1) {
+                pos = empty;
+            }
             else {
                 pos = 0;
                 for (int j = 1; j < f; j++)
                     if (last[j] < last[pos]) pos = j;
             }
+
             frame[pos] = pages[i];
             faults++;
         }
+
         last[pos] = i;
 
         printf("%d: ", pages[i]);
@@ -43,11 +57,11 @@ int main()
             if (frame[j] == -1) printf("- ");
             else printf("%d ", frame[j]);
         }
-        if (pos >= 0 && frame[pos] == pages[i]) {
-            /* The page may be a hit or a fault; count was updated above. */
-        }
+        if (hit) printf("Hit");
+        else printf("Fault");
         printf("\n");
     }
+
     printf("Total page faults = %d\n", faults);
     return 0;
 }
